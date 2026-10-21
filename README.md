@@ -10,7 +10,7 @@
 
 ## 开始写作
 
-1. 点击 GitHub 的 **Use this template → Create a new repository**，建立自己的写作副本；也可以直接用 **Code → Download ZIP** 下载源码。
+1. 点击 GitHub 的 **Use this template → Create a new repository** 建立自己的写作副本，再在新仓库选择 **Code → Download ZIP**。若直接在 Overleaf 写作，也可以从本仓库下载 ZIP。
 2. 在 Overleaf 选择 **New project → Upload project**，上传 ZIP。将主文档设为 `main.tex`，编译器设为 **pdfLaTeX**，点击 **Recompile**。[Overleaf 导入说明](https://docs.overleaf.com/managing-projects-and-files/uploading-a-project)
 3. 修改 [`config.tex`](config.tex)：设置实际人数（1–8）、报告标题、提交日期，以及各成员的姓名、贡献和签署日期。
 4. 在 [`body.tex`](body.tex) 写摘要和正文，编辑图表源码，并在 [`references.bib`](references.bib) 维护实际引用的文献。
