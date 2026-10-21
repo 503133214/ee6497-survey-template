@@ -1,0 +1,20 @@
+% Original editable TikZ placeholder, created for this project.
+% This is a structure example, NOT a completed research taxonomy.
+\begin{figure}[!b]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=black!70,rounded corners=2pt,align=center,
+    font=\footnotesize,minimum height=0.85cm,text width=1.85cm,
+    inner sep=3pt,fill=black!3},
+  link/.style={-{Stealth[length=1.7mm]},thick,draw=black!65}]
+  \node[box,text width=2.4cm] (topic) at (0,0) {Survey topic\\{[Define scope]}};
+  \node[box] (a) at (-2.4,-1.45) {Category A\\{[Criterion]}};
+  \node[box] (b) at (0,-1.45) {Category B\\{[Criterion]}};
+  \node[box] (c) at (2.4,-1.45) {Category C\\{[Criterion]}};
+  \draw[link] (topic.south) -- ++(0,-0.25) -| (a.north);
+  \draw[link] (topic.south) -- (b.north);
+  \draw[link] (topic.south) -- ++(0,-0.25) -| (c.north);
+\end{tikzpicture}
+\caption{Original editable taxonomy layout. Placeholder categories and links must be replaced with a literature-supported synthesis. No research conclusion is represented.}
+\label{fig:taxonomy}
+\end{figure}

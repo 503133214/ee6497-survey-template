@@ -1,0 +1,82 @@
+% Adapted from the official IEEE Conference Template, IEEE / Overleaf.
+% Main document: main.tex. Compiler: pdfLaTeX.
+\documentclass[conference,a4paper]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{array,booktabs,tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{pdfpages}
+\usepackage[hidelinks]{hyperref}
+\input{config}
+
+\newcommand{\todo}[1]{\textcolor{blue!55!black}{[#1]}}
+\newcommand{\membername}[1]{\csname MemberName#1\endcsname}
+\newcommand{\memberwork}[1]{\csname MemberWork#1\endcsname}
+\newcommand{\memberdate}[1]{\csname MemberDate#1\endcsname}
+\newcommand{\membersignature}[1]{%
+  \IfFileExists{signatures/member-#1.png}{%
+    \includegraphics[width=2.6cm,height=0.65cm,keepaspectratio]{signatures/member-#1.png}%
+  }{\parbox[c][0.65cm][c]{2.6cm}{\centering\scriptsize [Real signature]}}%
+}
+\newcommand{\MemberRow}[1]{%
+  \parbox[c][0.85cm][c]{0.22\textwidth}{\membername{#1}} &
+  \memberwork{#1} & \memberdate{#1} & \membersignature{#1}\\\hline
+}
+\newcommand{\PrintMemberRows}{%
+  \MemberRow{1}%
+  \ifnum\TeamSize>1 \MemberRow{2}\fi
+  \ifnum\TeamSize>2 \MemberRow{3}\fi
+  \ifnum\TeamSize>3 \MemberRow{4}\fi
+  \ifnum\TeamSize>4 \MemberRow{5}\fi
+  \ifnum\TeamSize>5 \MemberRow{6}\fi
+  \ifnum\TeamSize>6 \MemberRow{7}\fi
+  \ifnum\TeamSize>7 \MemberRow{8}\fi
+}
+\newcommand{\PrintAuthorNames}{%
+  \membername{1}%
+  \ifnum\TeamSize>1 , \membername{2}\fi
+  \ifnum\TeamSize>2 , \membername{3}\fi
+  \ifnum\TeamSize>3 , \membername{4}\fi
+  \ifnum\TeamSize>4 \\ \membername{5}\fi
+  \ifnum\TeamSize>5 , \membername{6}\fi
+  \ifnum\TeamSize>6 , \membername{7}\fi
+  \ifnum\TeamSize>7 , \membername{8}\fi
+}
+
+\begin{document}
+\ifnum\TeamSize<1 \PackageError{EE6497}{TeamSize must be 1--8}{Edit config.tex}\fi
+\ifnum\TeamSize>8 \PackageError{EE6497}{TeamSize must be 1--8}{Edit config.tex}\fi
+\input{cover}
+% \twocolumn starts a new physical page. Do not reset the page counter.
+\twocolumn
+\pagestyle{plain}
+\title{\ReportTitle}
+\author{\IEEEauthorblockN{\PrintAuthorNames}
+\IEEEauthorblockA{School of Electrical and Electronic Engineering\\
+Nanyang Technological University, Singapore}}
+\maketitle
+\thispagestyle{plain}
+\input{body}
+
+% The live entry is the instructor's authentic example survey.
+% Replace the demo citation and .bib entry with verified literature.
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\clearpage
+\onecolumn
+\ifAttachTurnitin
+  \IfFileExists{attachments/turnitin-report.pdf}{%
+    \includepdf[pages=-,pagecommand={\thispagestyle{plain}}]{attachments/turnitin-report.pdf}%
+  }{%
+    \PackageError{EE6497}{Turnitin attachment is enabled but the PDF is missing}
+    {Upload attachments/turnitin-report.pdf or set AttachTurnitinfalse in config.tex}%
+  }
+\else
+  \input{turnitin-placeholder}
+\fi
+\end{document}

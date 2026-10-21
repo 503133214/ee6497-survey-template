@@ -1,0 +1,28 @@
+# Local TeX build outputs
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+/main.pdf
+*.xdv
+*.nav
+*.snm
+*.vrb
+
+# Personal submission material stays in each author's local/Overleaf copy.
+/signatures/*
+!/signatures/README.txt
+/attachments/*
+!/attachments/README.txt
+
+# Local exports and operating-system files
+*.zip
+.DS_Store
+
+# Retain the earlier local guide without duplicating the public README.
+/README_中文.txt
